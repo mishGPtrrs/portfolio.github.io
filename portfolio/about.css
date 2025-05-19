@@ -1,0 +1,282 @@
+@font-face {
+  font-family: 'main';
+  src: url('Milan_PersonalUseOnly.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+  color: #ffffff;
+  font-family: 'main', serif;
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+}
+.container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('images/background.webp');
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+  pointer-events: none;
+  animation: flickerFlip 0.8s steps(1, end) infinite;
+  will-change: transform;
+}
+
+
+@keyframes flickerFlip {
+  0%, 100% {
+    transform: scaleX(1);
+  }
+  50% {
+    transform: scaleX(-1);
+  }
+}
+
+.left-panel,
+.right-panel {
+  position: relative;
+  z-index: 1;
+}
+
+.left-panel {
+  width: 90%;
+  padding: 3rem 2rem;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.right-panel {
+  width: 13%;
+  background-color: #ffffff;
+}
+
+.bgline {
+  position: absolute;
+  object-fit: contain;
+  height: 100%;
+  z-index: 2;
+  opacity: 0.5;
+  pointer-events: none;
+  animation: fadeInRight 2s;
+}
+
+.bgline1 {
+  position: absolute;
+  object-fit: contain;
+  height: 100%;
+  z-index: 0;
+  opacity: 1;
+  pointer-events: none;
+  animation: fadeInRight 1s;
+}
+
+.pagetitle {
+  position: absolute;
+  bottom: 3rem;
+  left: -20%;
+  font-size: 7rem;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  color: #33394f;
+  z-index: 5;
+  animation: fadeInUp 3s;
+}
+
+nav.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  font-size: 3rem;
+  font-weight: 500;
+  margin-top: 7rem;
+  margin-left: 2rem;
+  align-items: left;
+  animation: fadeInRight 2.5s ease;
+}
+
+nav.menu a {
+  position: relative;
+  font-size: 2rem;
+  color: #ffffff;
+  text-decoration:none;
+  padding: 0.2rem 0.5rem;
+  letter-spacing: -0.01em;
+  transition: all 0.04s;
+  z-index: 1;
+}
+
+nav.menu a::before {
+  content: "";
+  position: absolute;
+  top: 38%;
+  transform: translateY(-50%)translateX(-20%);
+  width: 294%;
+  height: 90%;
+  background-image: url('images/hover.webp');
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: -1;
+
+}
+
+nav.menu a:hover::before,
+nav.menu a.active::before {
+  left: 50%;
+}
+
+nav.menu a:hover,
+nav.menu a.active {
+  color: black;
+  font-size: 4rem;
+  transform: translateX(0px);
+  letter-spacing: -0.5rem;
+}
+
+.about-content {
+  position: relative;
+  margin: auto;
+  max-width: 40%;
+  text-align: left;
+  z-index: 5;
+  margin-top: -25rem;
+  margin-left: 30rem;
+  position:fixed;
+}
+
+.rectangle {
+  position: absolute;
+  top: 5rem; 
+  left: 32rem; 
+  width: 34rem;
+  height: 4rem;
+  background-color: #ff989c;
+  mix-blend-mode: difference;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.about-title {
+  position: relative;
+  font-size: 5rem;
+  color: white;
+  z-index: 5;
+  padding-left: 1rem;
+  margin: 0 0 1.5rem 0;
+  margin-top: 4rem;
+  animation: fadeInRight 2s;
+
+}
+
+.about-content p {
+  margin-left: 3rem;
+  line-height: 1.6;
+  z-index: 5;
+    font-family: serif;
+    font-size: 1.2rem;
+    color: white;
+    animation: fadeInRight 3s ease;
+  }
+
+
+
+.socials {
+  display: flex;
+  gap: 1.2rem;
+  margin-left: 2rem;
+  margin-top: 2.5rem;
+  align-items: center;
+  animation: fadeInRight 2.5s ease;
+}
+
+.socials a {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  transition: transform 0.2s ease;
+}
+
+.socials a img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: brightness(0) invert(1); 
+  pointer-events: none;
+}
+
+.socials a:hover {
+  transform: scale(1.15);
+}
+
+.image {
+  position: absolute;
+  bottom: -7rem;
+  left: 55rem;
+  height: 90%;
+  max-width: 70%;
+  object-fit: contain;
+  z-index: 2;
+  pointer-events: none;
+  overflow: hidden;
+  animation: float 5.6s ease-in-out infinite; /* slowest */
+
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(0%, -1%) translateY(0); }
+  50% { transform: translate(0%, 1%) translateY(-10px); }
+}
+
+.footer {
+  margin-top: auto;
+  font-size: 0.9rem;
+  color: white;
+  animation: fadeInUp 3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    opacity: 1;
+  }
+  20%, 22%, 24%, 55% {
+    opacity: 0.2;
+  }
+}
